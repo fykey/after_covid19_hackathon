@@ -11,11 +11,13 @@ int sit_end;
 String send_data;
 float weight = 50.0;//重くなったらintに変えて
 
-const char* ssid = "your ssid";
-const char* password = "your password";
+const char* ssid = "i phone XXX";
+const char* password = "abcdefs07";
 
 
-const char* host = "after-covid-hackathon-api.herokuapp.com";//後で入力！！！！！！！
+const char* host1 = "https://after-covid-hackathon-api.herokuapp.com/SitDown";//後で入力！！！！！！！
+
+const char* host2 = "https://after-covid-hackathon-api.herokuapp.com/StandUp";
 
 
 HX711 scale;
@@ -80,6 +82,16 @@ void loop() {
   }
   Serial.print("\t");
   Serial.println(count);
+  if (count == sit_judge){
+    Serial.println("着席しました");//postリクエスト
+
+    
+
+    
+
+    
+  }
+  
   if (count > sit_judge){//着席スタート合図＊＊ここから，postのプログラム書けばいいのでは
     Serial.println("着席中です");
     sit_end = count;
@@ -95,21 +107,22 @@ void loop() {
   }
    
    if ((sit_end - count) >=sit_judge){//二重かっこがどうなるのかわからない
+    
     Serial.print("席を立ったためデータを送信します！！");//このタイミングでpost送信
-    send_data = String((sit_end - sit_judge)*2);
+    send_data = String((sit_end - sit_judge)*2)+"秒";
     sit_end = 0;
 
     WiFiClient client;
   const int httpPort = 80;
-  if (!client.connect(host, httpPort)) {
+  if (!client.connect(host2, httpPort)) {
     Serial.println("connection failed");
     return;
   }
 
    Serial.print("Requesting POST: ");
    // Send request to the server:
-   client.println("POST / HTTP/1.1");
-   client.println("Host: server_name");
+   client.println(String("POST") / "HTTP/1.1");
+   client.println("Host": host2);
    client.println("Accept: */*");
    client.println("Content-Type: https://after-covid-hackathon-api.herokuapp.com/");
    client.print("Content-Length: ");
