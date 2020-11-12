@@ -12,8 +12,8 @@ int sit_end;
 String send_data_API;
 float weight = 50.0;//重くなったらintに変えて
 
-const char* ssid = "i phone XXX";
-const char* password = "abcdefs07";
+const char* ssid = "ssid_name";
+const char* password = "password";
 
 HX711 scale;
 
