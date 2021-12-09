@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 #include <ArduinoESPAT.h>
 
-ESPAT espat("BCW710J-05B786-A", "4a9f585ebce26");
+ESPAT espat("ssid", "password");
 
 void setup() {
   // put your setup code here, to run once:
