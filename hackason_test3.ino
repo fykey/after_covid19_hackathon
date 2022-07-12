@@ -11,8 +11,8 @@ int sit_end;
 String send_data;
 float weight = 50.0;//重くなったらintに変えて
 
-const char* ssid = "i phone XXX";
-const char* password = "abcdefs07";
+const char* ssid = "ssid";
+const char* password = "password";
 
 
 const char* host1 = "https://after-covid-hackathon-api.herokuapp.com/SitDown";//後で入力！！！！！！！
